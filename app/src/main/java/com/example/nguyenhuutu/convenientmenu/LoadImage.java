@@ -1,16 +1,15 @@
 package com.example.nguyenhuutu.convenientmenu;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.nguyenhuutu.convenientmenu.Fragment.Fragment_Comment;
 import com.example.nguyenhuutu.convenientmenu.Fragment.Fragment_Drink;
 import com.example.nguyenhuutu.convenientmenu.Fragment.Fragment_Event;
 import com.example.nguyenhuutu.convenientmenu.Fragment.Fragment_Food;
+import com.example.nguyenhuutu.convenientmenu.eventmanage.ManageEvent;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +31,7 @@ public class LoadImage extends AsyncTask<Object, String, Bitmap> {
         try {
             URL url = new URL((String) params[0]);
             bitmap = BitmapFactory.decodeStream((InputStream) url.getContent());
-            if (Const.EVENT == id) {
+            if (Const.EVENT == id||Const.MANAGE_EVENT ==id) {
                 try {
                     Fragment_Event.adapter.event.get(i).setImageEvent(bitmap);
                 } catch (Exception ex) {
@@ -69,6 +68,7 @@ public class LoadImage extends AsyncTask<Object, String, Bitmap> {
 
     @Override
     protected void onProgressUpdate(String... values) {
+        Log.d(TAG, "onProgressUpdate");
         int id = Integer.parseInt(values[0]);
         if (Const.EVENT == id) {
             Fragment_Event.adapter.notifyDataSetChanged();
@@ -78,6 +78,10 @@ public class LoadImage extends AsyncTask<Object, String, Bitmap> {
             Fragment_Comment.adapter.notifyDataSetChanged();
         } else if (Const.FOOD == id) {
             Fragment_Food.adapter.notifyDataSetChanged();
+        }
+        else if(Const.MANAGE_EVENT == id) {
+            Log.d(TAG, "onProgressUpdate: MANAGE_EVENT");
+            ManageEvent.mAdapter.notifyDataSetChanged();
         }
     }
 

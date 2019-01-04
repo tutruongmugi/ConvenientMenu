@@ -57,7 +57,7 @@ public class Fragment_Event extends Fragment {
                     int mount = dataList.size();
                     for (int i = 0; i < mount; i++) {
                         final int finalI = i;
-                        CMStorage.storage.child("images/event/" + dataList.get(i).getEventImageFiles().get(0))
+                        CMStorage.storage.child("images/event/" + dataList.get(i).getEvent_image_files().get(0))
                                 .getDownloadUrl()
                                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
@@ -106,7 +106,7 @@ public class Fragment_Event extends Fragment {
         int count = eventList.size();
         int index = 0;
         while (index < count) {
-            if (eventList.get(index).getEndDate().compareTo(nowDate) < 0) {
+            if (eventList.get(index).getEnd_date().compareTo(nowDate) < 0) {
                 eventList.remove(index);
                 count--;
             } else {

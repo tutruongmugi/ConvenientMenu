@@ -76,9 +76,9 @@ public class NewEventFragment extends Fragment {
                                     final Event event;
                                     final CardView eventItemLayout = (CardView) inflater.inflate(R.layout.homepage_event_item, container);
                                     event = dataList.get(index);
-                                    ((TextView) eventItemLayout.findViewById(R.id.eventName)).setText(event.getEventName());
+                                    ((TextView) eventItemLayout.findViewById(R.id.event_name)).setText(event.getEvent_name());
 
-                                    CMStorage.storage.child("images/event/" + event.getEventImageFiles().get(0).toString())
+                                    CMStorage.storage.child("images/event/" + event.getEvent_image_files().get(0).toString())
                                             .getDownloadUrl()
                                             .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                 @Override
@@ -102,7 +102,7 @@ public class NewEventFragment extends Fragment {
                                             });
 
                                     CMDB.db.collection("restaurant")
-                                            .document(event.getRestAccount())
+                                            .document(event.getRest_account())
                                             .get()
                                             .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                                 @Override
@@ -125,9 +125,9 @@ public class NewEventFragment extends Fragment {
                                         @Override
                                         public void onClick(View v) {
                                             //Intent eventIntent = new Intent(getActivity(), RestaurantDetail.class);
-                                            //restIntent.putExtra("event_id", rest.getEventId());
+                                            //restIntent.putExtra("event_id", rest.getEvent_Id());
                                             //startActivity(eventIntent);
-                                            Toast.makeText(getActivity(), event.getEventId() + "-" + event.getEventContent(), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getActivity(), event.getEvent_id() + "-" + event.getEvent_content(), Toast.LENGTH_SHORT).show();
                                         }
                                     });
 
@@ -153,7 +153,7 @@ public class NewEventFragment extends Fragment {
         int count = eventList.size();
         int index = 0;
         while (index < count) {
-            if (eventList.get(index).getEndDate().compareTo(nowDate) < 0) {
+            if (eventList.get(index).getEnd_date().compareTo(nowDate) < 0) {
                 eventList.remove(index);
                 count--;
             } else {

@@ -2,7 +2,8 @@ package com.example.nguyenhuutu.convenientmenu.Fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,14 @@ import android.widget.TextView;
 import com.example.nguyenhuutu.convenientmenu.Event;
 import com.example.nguyenhuutu.convenientmenu.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListEvent extends BaseAdapter {
+    private static final String TAG ="ListEvent";
+
     Context context;
     int inflat;
-    public static List<Event> event;
+    public static List<Event> event; // what sao ak
 
     public ListEvent(Context context, int inflat, List<Event> event) {
         this.inflat = inflat;
@@ -53,9 +55,15 @@ public class ListEvent extends BaseAdapter {
 
         Event item = event.get(position);
 
-        tvDescriptionEvent.setText(item.getEventContent());
-        tvTitleEvent.setText(item.getEventName());
-        tvTimeEvent.setText(item.getBeginDateFormat() + " - " + item.getEndDateFormat());
+        tvDescriptionEvent.setText(item.getEvent_content());
+        tvTitleEvent.setText(item.getEvent_name());
+
+        String beginDate = DateFormat.format("dd/MM", item.getBegin_date()).toString();
+        String endDate =  DateFormat.format("dd/MM", item.getEnd_date()).toString();
+        tvTimeEvent.setText(beginDate  + " - " + endDate);
+
+
+        Log.d(TAG, "getView: binding View");
         imgEvent.setImageBitmap(item.getImageEvent(context));
 
         return row;

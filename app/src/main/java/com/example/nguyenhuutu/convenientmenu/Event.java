@@ -1,24 +1,16 @@
 package com.example.nguyenhuutu.convenientmenu;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.icu.text.DateFormat;
-import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.util.Log;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.gson.annotations.SerializedName;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -26,33 +18,119 @@ import java.util.Map;
 import java.util.TimeZone;
 
 public class Event implements Comparable {
+    public Event() {}
+
+    private static final String TAG ="Event";
+
+    public String getEvent_id() {
+        return event_id;
+    }
+
+    public Event setEvent_id(String event_id) {
+        this.event_id = event_id;
+        return this;
+    }
+
+    public String getEvent_name() {
+        return event_name;
+    }
+
+    public Event setEvent_name(String event_name) {
+        this.event_name = event_name;
+        return this;
+    }
+
+    public String getEvent_content() {
+        return event_content;
+    }
+
+    public Event setEvent_content(String event_content) {
+        this.event_content = event_content;
+        return this;
+    }
+
+    public List<String> getEvent_image_files() {
+        return event_image_files;
+    }
+
+    public Event setEvent_image_files(List<String> event_image_files) {
+        this.event_image_files = event_image_files;
+        return this;
+    }
+
+    public Date getBegin_date() {
+        return begin_date;
+    }
+
+    public Event setBegin_date(Date begin_date) {
+        this.begin_date = begin_date;
+        return this;
+    }
+
+    public Date getEnd_date() {
+        return end_date;
+    }
+
+    public Event setEnd_date(Date end_date) {
+        this.end_date = end_date;
+        return this;
+    }
+
+    public String getRest_account() {
+        return rest_account;
+    }
+
+    public Event setRest_account(String rest_account) {
+        this.rest_account = rest_account;
+        return this;
+    }
+
+    public Date getDate_publish() {
+        return date_publish;
+    }
+
+    public Event setDate_publish(Date date_publish) {
+        this.date_publish = date_publish;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
-                "eventId='" + eventId + '\'' +
-                ", eventName='" + eventName + '\'' +
-                ", eventContent='" + eventContent + '\'' +
-                ", eventImageFiles=" + eventImageFiles +
-                ", beginDate=" + beginDate +
-                ", endDate=" + endDate +
-                ", restAccount='" + restAccount + '\'' +
-                ", datePublish=" + datePublish +
+                "event_id='" + event_id + '\'' +
+                ", event_name='" + event_name + '\'' +
+                ", event_content='" + event_content + '\'' +
+                ", event_image_files=" + event_image_files +
+                ", begin_date=" + begin_date +
+                ", end_date=" + end_date +
+                ", rest_account='" + rest_account + '\'' +
+                ", date_publish=" + date_publish +
                 '}';
     }
 
     /**
      * Properties
      */
-    private String eventId;
-    private String eventName;
-    private String eventContent;
-    private List<String> eventImageFiles;
-    private Date beginDate;
-    private Date endDate;
-    private String restAccount;
-    private Date datePublish;
-    private Bitmap imageEvent;
-    private String imageUrl;
+
+    @SerializedName("event_Id")
+    private String event_id;
+    @SerializedName("event_name")
+    private String event_name;
+    @SerializedName("event_content")
+    private String event_content;
+    @SerializedName("event_image_files")
+    private List<String> event_image_files;
+    @SerializedName("begin_date")
+    private Date begin_date;
+    @SerializedName("end_date")
+    private Date end_date;
+    @SerializedName("rest_account")
+    private String rest_account;
+    @SerializedName("date_publish")
+    private Date date_publish;
+
+
+    private Bitmap imageEvent =null;
     public static int compareProperty;
     public final static int DATE = 0;
 
@@ -60,68 +138,17 @@ public class Event implements Comparable {
      * Constructor methods
      */
     public Event(String _eventId, String _eventContent, List<String> _eventImageFiles, Date _beginDate, Date _endDate, String _restAccount, Date _datePublish,String _eventName) {
-        this.eventId = _eventId;
-        this.eventName = _eventName;
-        this.eventContent = _eventContent;
-        this.eventImageFiles = _eventImageFiles;
-        this.beginDate = _beginDate;
-        this.endDate = _endDate;
-        this.restAccount = _restAccount;
-        this.datePublish = _datePublish;
-        this.eventName = _eventName;
+        this.event_id = _eventId;
+        this.event_name = _eventName;
+        this.event_content = _eventContent;
+        this.event_image_files = _eventImageFiles;
+        this.begin_date = _beginDate;
+        this.end_date = _endDate;
+        this.rest_account = _restAccount;
+        this.date_publish = _datePublish;
+        this.event_name = _eventName;
     }
 
-    /**
-     * Getter methods
-     */
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public String getEventId() {
-        return eventId;
-    }
-
-    public String getEventName() {
-        return eventName;
-    }
-
-    public String getEventContent() {
-        return eventContent;
-    }
-
-    public List<String> getEventImageFiles() {
-        return eventImageFiles;
-    }
-
-    public Date getBeginDate() {
-        return this.beginDate;
-    }
-
-    public Date getEndDate() {
-        return this.endDate;
-    }
-
-    public String getBeginDateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat.format(beginDate);
-    }
-
-    public String getEndDateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat.format(endDate);
-    }
-
-    public String getRestAccount() {
-        return restAccount;
-    }
-
-    public Date getDatePublish() {
-        return datePublish;
-    }
 
 
     public Bitmap getImageEvent() {
@@ -137,8 +164,10 @@ public class Event implements Comparable {
 
     public Bitmap getImageEvent(Context context) {
         if (imageEvent != null) {
+            Log.d(TAG, "getImageEvent: image is available");
             return imageEvent;
         } else {
+            Log.d(TAG, "getImageEvent: image is null");
             return BitmapFactory.decodeResource(context.getResources(), R.drawable.app_logo);
         }
     }
@@ -223,7 +252,7 @@ public class Event implements Comparable {
         int result = 0;
 
         if (compareProperty == DATE) {
-            if (this.getDatePublish().compareTo(eventCmp.getDatePublish()) > 1) {
+            if (this.getDate_publish().compareTo(eventCmp.getDate_publish()) > 1) {
                 result = -1;
             } else {
                 result = 1;
@@ -231,13 +260,5 @@ public class Event implements Comparable {
         }
 
         return result;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 }

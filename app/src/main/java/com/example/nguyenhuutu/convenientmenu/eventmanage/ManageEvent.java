@@ -1,5 +1,6 @@
-package com.example.nguyenhuutu.convenientmenu;
+package com.example.nguyenhuutu.convenientmenu.eventmanage;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,58 +11,61 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.nguyenhuutu.convenientmenu.CMDB;
+import com.example.nguyenhuutu.convenientmenu.CMStorage;
+import com.example.nguyenhuutu.convenientmenu.Const;
+import com.example.nguyenhuutu.convenientmenu.Event;
 import com.example.nguyenhuutu.convenientmenu.Fragment.ListEvent;
+import com.example.nguyenhuutu.convenientmenu.LoadImage;
+import com.example.nguyenhuutu.convenientmenu.R;
 import com.example.nguyenhuutu.convenientmenu.helper.Helper;
 import com.example.nguyenhuutu.convenientmenu.helper.UserSession;
-import com.example.nguyenhuutu.convenientmenu.restaurant_detail.Restaurant_Detail;
+import com.example.nguyenhuutu.convenientmenu.main.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Manage_Event extends Fragment implements AdapterView.OnItemClickListener {
+public class ManageEvent extends Fragment implements AdapterView.OnItemClickListener,View.OnClickListener {
     private static String TAG="ManageEvent";
     ListView mListView;
-    private ListEvent mAdapter;
+    ImageView mAdd;
+    public static ListEvent mAdapter;
 
-    public Manage_Event(){
+    public ManageEvent(){
 
     }
 
     private void getData(String restaurentName) {
-        final List<Event> dataList = new ArrayList<Event>();
         CMDB.db.collection("event").whereEqualTo("rest_account", restaurentName).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        try {
-                            Event item = Event.loadEvent(document.getData());
-                            dataList.add(item);
-
-                        } catch (Exception ex) {
-                        }
-                    }
+                    List<Event> dataList = task.getResult().toObjects(Event.class);
 
                     int mount = dataList.size();
                     for (int i = 0; i < mount; i++) {
                         final int finalI = i;
-                        CMStorage.storage.child("images/event/" + dataList.get(i).getEventImageFiles().get(0))
+                        CMStorage.storage.child("images/event/" + dataList.get(i).getEvent_image_files().get(0))
                                 .getDownloadUrl()
                                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        dataList.get(finalI).setImageUrl(uri.toString());
+                                      //  dataList.get(finalI).setImageUrl(uri.toString());
+
+                                        Log.d(TAG, "onSuccess: uri = "+uri.toString());
+                                        try {
+                                            LoadImage loadImage = new LoadImage();
+                                            loadImage.execute(uri.toString(), finalI, Const.MANAGE_EVENT);
+                                        } catch (Exception ex) {}
+
                                     }
                                 });
 
@@ -72,7 +76,7 @@ public class Manage_Event extends Fragment implements AdapterView.OnItemClickLis
                     }
                     mAdapter = new ListEvent(getActivity(), R.layout.item_event, dataList);
                     mListView.setAdapter(mAdapter);
-                    mListView.setOnItemClickListener(Manage_Event.this);
+                    mListView.setOnItemClickListener(ManageEvent.this);
                 } else {
                     Toast.makeText(getContext(), "Kết nối server thất bại", Toast.LENGTH_LONG).show();
                 }
@@ -89,8 +93,9 @@ public class Manage_Event extends Fragment implements AdapterView.OnItemClickLis
         String id = rest.getUsername();
 
         mListView = view.findViewById(R.id.lvEvents);
+        mAdd = view.findViewById(R.id.imgAdd);
 
-
+        mAdd.setOnClickListener(this);
         getData(id);
 
         return view;
@@ -118,12 +123,26 @@ public class Manage_Event extends Fragment implements AdapterView.OnItemClickLis
         int count = eventList.size();
         int index = 0;
         while (index < count) {
-            if (eventList.get(index).getEndDate().compareTo(nowDate) < 0) {
+            if (eventList.get(index).getEnd_date().compareTo(nowDate) < 0) {
                 eventList.remove(index);
                 count--;
             } else {
                 index++;
             }
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.imgAdd) addEvent();
+    }
+
+    public void addEvent() {
+    //
+        Activity a = getActivity();
+        if(a instanceof MainActivity) {
+            ((MainActivity)a).setTitle("Thêm sự kiện");
+            ((MainActivity)a).switchContent(new AddNewEvent());
         }
     }
 }
