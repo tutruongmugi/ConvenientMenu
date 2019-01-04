@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".manage_menu.add_dish.AddDish"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/addDishToolbar"
+        android:theme="@style/Theme.AppCompat.Light"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="@dimen/register_content_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fitsSystemWindows="true"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/dishNameBound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên món ăn"
+                android:textColorHint="@color/hintColor"
+                app:hintTextAppearance="@style/HintText"
+                app:hintEnabled="true">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/dishName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/border_input_bottom"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/dishPriceBound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Giá"
+                android:textColorHint="@color/hintColor"
+                app:hintTextAppearance="@style/HintText"
+                app:hintEnabled="true">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/dishPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:background="@drawable/border_input_bottom"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loại món ăn"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/dishType"
+                    style="@style/Widget.AppCompat.Spinner.DropDown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"></Spinner>
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/dishInfoBound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Thông tin chi tiết"
+                android:textColorHint="@color/hintColor"
+                app:hintTextAppearance="@style/HintText"
+                app:hintEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/dishInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:gravity="left|top"
+                    android:background="@drawable/border_input_area"
+                    android:inputType="textMultiLine"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:scrollHorizontally="false"
+                    android:textColor="@color/black"
+                    android:padding="5dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hình ảnh"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/dishImageList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <ImageButton
+                        android:id="@+id/addDishImageButton"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:src="@drawable/add_dish_image"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/addDishButton"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:text="Thêm món ăn"
+                android:background="@color/colorMAIN"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

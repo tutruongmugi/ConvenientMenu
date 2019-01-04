@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorTextMainMenu">#fff</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#000000</color>
+    <color name="colorHeaderMainMenu">#FEE5A2</color>
+    <color name="red">#f70000</color>
+    <color name="green">#00ff00</color>
+    <color name="yellow">#dcfd00</color>
+    <color name="black">#000</color>
+    <color name="gray">#999999</color>
+    <color name="white">#fff</color>
+    <color name="hintColor">#a6a6a6</color>
+    <color name="colorMainMenu">#FFD76B</color>
+    <color name="colorMAIN">#FFD76B</color>
+    <color name="colorYellow1">#FEE5A2</color>
+    <color name="colorWhile">#ffffff</color>
+    <color name="colorTextRegister">#000</color>
+    <color name="colorLoginButton">#ff9900</color>
+</resources>

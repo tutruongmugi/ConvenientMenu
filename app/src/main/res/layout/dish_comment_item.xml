@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_margin="5dp">
+<com.mikhaellopez.circularimageview.CircularImageView
+    android:id="@+id/user_avatar"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    app:civ_border_color="#EEEEEE"
+    app:civ_border_width="4dp"
+    app:civ_shadow="true"
+    app:civ_shadow_radius="10"
+    app:civ_shadow_color="#8BC34A"
+    android:layout_marginRight="5dp"/>
+<TextView
+    android:id="@+id/user_fullname"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Name"
+    android:textColor="#000"
+    android:layout_toRightOf="@id/user_avatar"/>
+<RatingBar
+    android:id="@+id/number_of_star"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="10dp"
+    style="?android:attr/ratingBarStyleSmall"
+    android:layout_below="@id/user_fullname"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_alignLeft="@id/user_fullname"/>
+<TextView
+    android:id="@+id/comment_date"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="dd/mm/yyyy"
+    android:textStyle="italic"
+    android:layout_alignParentRight="true"/>
+<TextView
+    android:id="@+id/comment_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Content Comment"
+    android:textColor="#000"
+    android:layout_toRightOf="@id/user_avatar"
+    android:layout_below="@id/number_of_star"
+    android:layout_alignBottom="@id/imgAvatar"/>
+
+</RelativeLayout>

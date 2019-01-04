@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorYellow1">
+    <TextView
+        android:id="@+id/title_delete_route"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorMAIN"
+        android:gravity="center"
+        android:text="Thông báo"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_delete_route">
+
+        <TextView
+            android:id="@+id/warningText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:text="Bạn chắc chắn muốn xoá ?"
+            android:textColor="#717171"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/warningText"
+            android:layout_centerHorizontal="true">
+
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/close"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@color/colorMAIN"
+                android:text="Xác nhận"
+                android:textColor="#717171" />
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@color/colorMAIN"
+                android:text="Bỏ qua"
+                android:textColor="#717171" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

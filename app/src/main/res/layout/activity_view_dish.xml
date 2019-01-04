@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".view_dish.ViewDish"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbarDish_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:toolbarId="@+id/viewDishToolbar"
+            >
+
+            <!--Information dish-->
+            <LinearLayout
+                android:id="@+id/dish_info_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:fitsSystemWindows="true">
+
+                <RelativeLayout
+                    android:id="@+id/dish_images_viewer_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/dish_images_viewer"
+                        android:layout_width="match_parent"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        android:layout_height="151dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_alignParentLeft="true"
+                        app:layout_collapseMode="parallax"/>
+
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/indicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_alignBottom="@+id/dish_images_viewer"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        app:layout_collapseMode="parallax"/>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/dish_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/dish_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="left"
+                        android:lineHeight="24sp"
+                        android:text="Hoa cải đường"
+                        android:textColor="#595342"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/dish_rating_wrapper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <RatingBar
+                            android:id="@+id/dish_rating"
+                            style="@style/Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:hapticFeedbackEnabled="false"
+                            android:isIndicator="true"
+                            android:rating="4.5"/>
+
+                        <TextView
+                            android:id="@+id/rating_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/md_blue_500"
+                            android:textStyle="italic"
+                            android:textSize="10sp"
+                            android:textAlignment="center"
+                            android:text="(4.5/5)" />
+
+                        <TextView
+                             android:id="@+id/vote"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textColor="@color/md_blue_500"
+                             android:textStyle="italic"
+                             android:textSize="10sp"
+                             android:layout_marginLeft="4dp"
+                            android:layout_marginTop="2dp"
+                             android:text="(132 phiếu)" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/dish_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="left"
+                        android:lineHeight="24sp"
+                        android:text="$ 12.000đ"
+                        android:textColor="#7DC03A"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/dish_description_wrapper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dish_description_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="left"
+                            android:lineHeight="20sp"
+                            android:text="Mô tả"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                        <com.borjabravo.readmoretextview.ReadMoreTextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:id="@+id/dish_description"
+                            app:trimExpandedText="Show more"
+                            app:trimCollapsedText=" Show less"
+                            app:trimMode="trimModeLength"
+                            app:trimLength="50"
+                            app:colorClickableText="@color/md_blue_A400">
+
+                        </com.borjabravo.readmoretextview.ReadMoreTextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/viewDishToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="25dp"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <include layout="@layout/evaluate_comment_dish" />
+    </android.support.design.widget.CoordinatorLayout>

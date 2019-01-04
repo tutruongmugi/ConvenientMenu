@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhile"
+    android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical">
+
+    <SearchView
+        android:id="@+id/searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:layout_margin="8dp"
+        android:searchIcon="@drawable/black_search"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/search_border"
+        >
+        <requestFocus/>
+    </SearchView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchview"
+        android:text="aasd"
+        android:id="@+id/notfound"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="italic"
+        android:textColor="@color/md_grey_400"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchview"
+        android:id="@+id/reslayout"
+        android:orientation="vertical">
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/txtRes"
+        android:text="Restaurent"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/txtRes"
+            android:id="@+id/listviewRes"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/dishlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reslayout"
+        android:orientation="vertical">
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/txtDish"
+        android:text="Dish"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+        <ListView android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/txtDish"
+            android:id="@+id/listviewDish"
+            android:clickable="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

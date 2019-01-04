@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@color/colorMainMenu">
+
+    <LinearLayout
+        android:id="@+id/headerMenu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@color/colorHeaderMainMenu">
+
+        <ImageView
+            android:id="@+id/userAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:src="@drawable/ic_user_non_login" />
+        <TextView
+            android:id="@+id/userAccountName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="Nguyen Van A"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

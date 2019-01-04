@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/homepage_dish_item_width"
+    android:layout_height="match_parent"
+    card_view:contentPadding="@dimen/homepage_dish_item_padding"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardElevation="5dp"
+    card_view:cardBackgroundColor="#fff">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/homepage_dish_item_content_width"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+        <ImageView
+            android:id="@+id/imageDish"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dish_placeholder"/>
+
+        <LinearLayout
+            android:id="@+id/shortInfoDish"
+            android:orientation="vertical"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dishName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="#000"
+                android:textSize="@dimen/textSizeItemTitle"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Dish"
+                android:layout_marginTop="5dp"/>
+
+            <LinearLayout
+                android:id="@+id/ratingDishWrapper"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:id="@+id/ratingDish"
+                    style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:rating="4.5" />
+
+                <TextView
+                    android:id="@+id/ratingNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="8sp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#595342"
+                    android:text="(134 phiếu)"
+                    android:textStyle="italic"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/restaurantName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:singleLine="true"
+                android:text="Hoàng Long Quán"
+                android:textColor="#000"
+                android:textSize="@dimen/textSizeRestaurantNameReference"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

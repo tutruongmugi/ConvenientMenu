@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="activity_home_page">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_home"
+            android:icon="@drawable/ic_home"
+            android:title="TRANG CHỦ" />
+        <item
+            android:id="@+id/main_menu_restaurant_list"
+            android:icon="@drawable/ic_restaurant_list"
+            android:title="DANH SÁCH NHÀ HÀNG" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_login"
+            android:icon="@drawable/ic_login"
+            android:title="ĐĂNG NHẬP" />
+        <item
+            android:id="@+id/main_menu_register"
+            android:icon="@drawable/ic_register"
+            android:title="ĐĂNG KÝ" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="CÀI ĐẶT" />
+    </group>
+
+</menu>

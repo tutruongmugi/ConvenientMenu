@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="activity_home_page">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_home"
+            android:icon="@drawable/ic_home"
+            android:title="TRANG CHỦ" />
+        <item
+            android:id="@+id/main_menu_restaurant_list"
+            android:icon="@drawable/ic_restaurant_list"
+            android:title="DANH SÁCH NHÀ HÀNG" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_manage_menu"
+            android:icon="@drawable/ic_menu"
+            android:title="QUẢN LÝ THỰC ĐƠN" />
+        <item
+            android:id="@+id/main_menu_manage_event"
+            android:icon="@drawable/ic_manage_event"
+            android:title="QUẢN LÝ SỰ KIỆN" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_change_password"
+            android:icon="@drawable/ic_change_password"
+            android:title="ĐỔI MẬT KHẨU" />
+        <item
+            android:id="@+id/main_menu_info_account"
+            android:icon="@drawable/ic_account_info"
+            android:title="THÔNG TIN TÀI KHOẢN" />
+        <item
+            android:id="@+id/main_menu_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="ĐĂNG XUẤT" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/main_menu_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="CÀI ĐẶT" />
+    </group>
+</menu>

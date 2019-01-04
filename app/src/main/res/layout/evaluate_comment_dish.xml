@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view_dish.ViewDish"
+    tools:showIn="@layout/activity_view_dish"
+    android:id="@+id/nestedScrollViewDish"
+    android:background="#fff"
+    android:fillViewport="true"
+    android:theme="@style/AppTheme.NoActionBar"
+    >
+
+    <LinearLayout
+        android:id="@+id/comment_dish_list_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <LinearLayout
+            android:id="@+id/evaluate_dish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/evaluate_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:gravity="left"
+                android:lineHeight="20sp"
+                android:text="Đánh giá món ăn"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RatingBar
+                android:id="@+id/evaluate_dish_rating"
+                android:theme="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                />
+        </LinearLayout>
+        <!--comment-->
+
+        <LinearLayout
+            android:id="@+id/comment_dish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/comment_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:gravity="left"
+                android:lineHeight="20sp"
+                android:text="Bình luận"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/comment_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ratComment"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:textStyle="italic"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:singleLine="true"
+                android:drawableRight="@android:drawable/ic_menu_send"
+                android:hint="Thêm bình luận"
+                android:focusable="true"
+                android:clickable="true"
+                android:textColor="#000"
+                android:textColorHint="#BFBDBD"
+                android:textSize="16sp"
+                android:background="@drawable/search_form_border"
+                >
+                <requestFocus/>
+            </EditText>
+
+        </LinearLayout>
+        <ListView
+            android:id="@+id/listComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:scrollbars="vertical"
+            android:nestedScrollingEnabled="true"
+            >
+        </ListView>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

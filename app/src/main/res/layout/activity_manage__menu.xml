@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#fff">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:id="@+id/groupSearch">
+    <EditText
+        android:id="@+id/search_Dish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:hint="Tìm kiếm món ăn, thức uống"
+        android:padding="10dp"
+        android:textColorHint="#949494"
+        android:textColor="#000"
+        android:layout_weight="1"
+        android:background="@drawable/search_form_border"/>
+    <ImageButton
+        android:id="@+id/imgAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/add"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_vertical"
+        android:baselineAlignBottom="true"/>
+</LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabMenu"
+        android:layout_below="@id/groupSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:tabTextColor="#000"
+        android:background="#ffff"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_menu"
+        android:layout_below="@id/tabMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</RelativeLayout>

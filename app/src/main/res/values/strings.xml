@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Convenient Menu</string>
+    <string name="action_settings">Settings</string>
+    <string name="dish_db">Dish</string>
+    <string name="home_page_title">Convenient Menu</string>
+    <string name="switch_register_title">Đăng ký</string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="change_pasword_title">Đổi mật khẩu</string>
+    <string name="restaurant_list_title">Danh sách nhà hàng</string>
+    <string name="mark_list_title">Danh sách đánh dấu</string>
+    <string name="setting_title">Cài đặt</string>
+    <string name="manage_menu_title">Quản lý thực đơn</string>
+    <string name="manage_event_title">Quản lý sự kiện</string>
+    <string name="add_dish_title">Thêm món ăn</string>
+    <string name="add_event_title">Thêm sự kiện</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="open">Open navigation drawer</string>
+    <string name="close">Close navigation drawer</string>
+    <string name="main_menu_home">TRANG CHỦ</string>
+    <string name="main_menu_restaurant_list">DANH SÁCH NHÀ HÀNG</string>
+    <string name="main_menu_mark">DANH SÁCH ĐÁNH DẤU</string>
+    <string name="main_menu_manage_menu">QUẢN LÝ THỰC ĐƠN</string>
+    <string name="main_menu_manage_event">QUẢN LÝ SỰ KIỆN</string>
+    <string name="main_menu_change_password">ĐỔI MẬT KHẨU</string>
+    <string name="main_menu_login">ĐĂNG NHẬP</string>
+    <string name="main_menu_logout">ĐĂNG XUẤT</string>
+    <string name="main_menu_register">ĐĂNG KÝ</string>
+    <string name="main_menu_setting">CÀI ĐẶT</string>
+    <string name="main_menu_account_info">THÔNG TIN TÀI KHOẢN</string>
+    <string name="rule_check">Tôi đồng ý với các điều khoản của ứng dụng</string>
+    <string name="errorEmptyMessage">Không được để trống</string>
+
+    <!--strings use in login screen-->
+    <string name="password_hint">Password&#8230;&#8230;&#8230;</string>
+    <string name="username_hint">User name&#8230;&#8230;&#8230;</string>
+    <string name="logo_description">App Logo</string>
+    <string name="username_icon_description">User Name Icon</string>
+    <string name="password_icon_description">Password Icon</string>
+    <string name="login">Đăng nhập</string>
+    <string name="registry">Đăng ký</string>
+    <string name="empty_error_mesage">Không để trống ô này</string>
+    <string name="invalid_username_error_mesage">Username không được có khoảng trắng</string>
+    <string name="wrong_username_mesage">Username không đúng</string>
+    <string name="wrong_password_mesage">Password không đúng</string>
+</resources>

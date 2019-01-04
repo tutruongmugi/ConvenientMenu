@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#ffd000</item>
+        <item name="colorAccent">#00ff0d</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="Base.Theme.AppCompat.Light">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="HintText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <style name="ErrorHintText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#666666</item>
+        <item name="colorControlActivated">@color/yellow</item>
+    </style>
+</resources>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Update_Dish">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarAddOrUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:id="@+id/svInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnUpdateOrAdd"
+        android:layout_below="@+id/toolbarAddOrUpdate"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="30dp">
+
+            <EditText
+                android:id="@+id/txtNameDish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:background="@drawable/search_form_border"
+                android:hint="Tên món ăn, thức uống"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#646464" />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:id="@+id/radioTypeDish"
+                android:layout_below="@id/txtNameDish"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioFood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thức ăn"/>
+                <RadioButton
+                    android:id="@+id/radioDrink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đồ uống"/>
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/txtPriceDish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radioTypeDish"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:background="@drawable/search_form_border"
+                android:drawableRight="@drawable/price"
+                android:hint="Giá"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#646464" />
+
+            <EditText
+                android:id="@+id/txtDesDish"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/txtPriceDish"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:background="@drawable/search_form_border"
+                android:gravity="start"
+                android:hint="Thông tin chi tiết"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#646464" />
+
+            <HorizontalScrollView
+                android:id="@+id/hsvListImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtDesDish"
+                android:background="#44aaaaaa">
+
+                <LinearLayout
+                    android:id="@+id/viewgroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip"></LinearLayout>
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnUpdateOrAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/search_form_border"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="Thêm" />
+</RelativeLayout>

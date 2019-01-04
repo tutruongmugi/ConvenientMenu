@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/homepage_rest_item_width"
+    android:layout_height="match_parent"
+    card_view:contentPadding="@dimen/homepage_rest_item_padding"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardElevation="5dp"
+    card_view:cardBackgroundColor="#fff">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/homepage_rest_item_content_width"
+        android:layout_height="match_parent"
+        android:background="#fff">
+        <ImageView
+            android:id="@+id/imageRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/restaurant_placeholder"/>
+
+        <LinearLayout
+            android:id="@+id/shortInfoRestaurant"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/restaurantName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat"
+                android:textColor="#000"
+                android:textSize="@dimen/textSizeItemTitle"
+                android:textStyle="bold"
+                android:text="Restaurant"
+                android:layout_marginTop="5dp"/>
+
+            <LinearLayout
+                android:id="@+id/ratingRestaurantWrapper"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:id="@+id/ratingRestaurant"
+                    style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:rating="4.5" />
+
+                <TextView
+                    android:id="@+id/ratingNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="5sp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#595342"
+                    android:text="(134 phiếu)"
+                    android:textStyle="italic"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:id="@+id/addressRestaurant"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:paddingBottom="5dp"-->
+                <!--android:singleLine="true"-->
+                <!--android:ellipsize="end"-->
+                <!--android:textSize="8sp"-->
+                <!--android:text="address address"/>-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

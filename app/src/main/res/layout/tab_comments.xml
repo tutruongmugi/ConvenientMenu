@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <LinearLayout
+            android:id="@+id/commentForm"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txtRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Vui lòng đánh giá cho chúng tôi"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <RatingBar
+                android:id="@+id/ratComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtRating"
+                android:layout_centerHorizontal="true"
+                android:theme="@style/RatingBar"
+
+                />
+
+            <EditText
+                android:id="@+id/txtComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ratComment"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:singleLine="true"
+                android:drawableRight="@android:drawable/ic_menu_send"
+                android:hint="Thêm bình luận"
+                android:textColor="#000"
+                android:textColorHint="#646464"
+                android:background="@drawable/search_form_border"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvComment"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/commentForm"
+            android:nestedScrollingEnabled="true"/>
+        <ProgressBar
+            android:id="@+id/progressBarComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+</RelativeLayout>

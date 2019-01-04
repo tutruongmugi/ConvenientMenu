@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<ImageView
+    android:id="@+id/imgFoodDrink"
+    android:layout_width="120dp"
+    android:layout_height="90dp"
+    android:scaleType="fitXY"
+    android:layout_marginRight="@dimen/fab_margin"/>
+    <TextView
+        android:id="@+id/tvFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name Food"
+        android:singleLine="true"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@id/imgFoodDrink"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/imgFoodDrink"
+        app:cardBackgroundColor="#ff0000"
+        app:cardCornerRadius="10dp">
+        <TextView
+            android:id="@+id/tvEvent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mới"
+            />
+
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imgPopupMenu"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/dot" />
+    <RatingBar
+        android:id="@+id/rbRatingItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvPrice"
+        android:layout_toRightOf="@id/imgFoodDrink"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_toLeftOf="@id/tvTimeRating"
+        android:layout_marginBottom="20dp" />
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="$ 12.000đ"
+        android:layout_alignBottom="@id/imgFoodDrink"
+        android:layout_toRightOf="@id/imgFoodDrink"
+        android:textColor="#00ff22"/>
+</RelativeLayout>
